@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Crear concierto</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+         <form th:object = "${conciertos}"
+              th:action = "@{/save}"
+              method='POST'>
+             
+            <input type="hidden" th:field="*{id}">
+            <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Artista</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail3" th:field="*{artista}">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Costo</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword3" th:field="*{costo}">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Capacidad Personas</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword3" th:field="*{capacidadpersonas}">
+                </div>
+            </div>
+          
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Fecha</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPassword3" th:field="*{fecha}">
+                </div>
+            </div>
+            <div class="form-group mb-3 row">
+                <label for="inputState" class="form-label">Lugar</label>
+                <select th:field="*{lugar}" class="form-control form-control-sm col-md-6" id="lugar">
+                    <option th:each="x:${lugar}"
+                            th:value="${x.id}"
+                            th:text="${x.lugar}"/>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>
+        </form>
+        <a href = "/conciertos"> Informacion </a>
+    </body>
+</html>
+
+    
