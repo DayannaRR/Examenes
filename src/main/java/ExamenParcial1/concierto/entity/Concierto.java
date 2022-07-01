@@ -64,9 +64,10 @@ public class Concierto implements Serializable{
     public void setCapacidadpersonas(int capacidadpersonas) {
         this.capacidadpersonas = capacidadpersonas;
     }
-
+    
     public Date getFecha() {
         return fecha;
+       
     }
 
     public void setFecha(Date fecha) {

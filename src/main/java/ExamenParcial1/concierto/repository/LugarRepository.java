@@ -12,4 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LugarRepository extends CrudRepository<Lugar,Long>{
     
+    
 }
